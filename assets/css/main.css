@@ -400,6 +400,138 @@ blockquote {
 	align-items: flex-end;
 }
 
+/* Circular responsive image icon utilities
+   Usage: add `class="circle-img circle-img-md"` to any <img> to
+   automatically crop it to a circle and make it responsive.
+   Optional size helpers: .circle-img-sm | .circle-img-md | .circle-img-lg
+*/
+.circle-img {
+	display: block;
+	width: 48px;
+	height: 48px;
+	max-width: 100%;
+	/* keeps image from overflowing its container */
+	border-radius: 50%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	/* crop to fill the circle */
+	overflow: hidden;
+}
+
+.circle-img-sm {
+	width: 32px;
+	height: 32px;
+}
+
+.circle-img-md {
+	width: 48px;
+	height: 48px;
+}
+
+.circle-img-lg {
+	width: 64px;
+	height: 64px;
+}
+
+@media screen and (max-width: 980px) {
+	.circle-img {
+		width: 40px;
+		height: 40px;
+	}
+
+	.circle-img-md {
+		width: 40px;
+		height: 40px;
+	}
+
+	.circle-img-lg {
+		width: 56px;
+		height: 56px;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.circle-img {
+		width: 36px;
+		height: 36px;
+	}
+
+	.circle-img-md {
+		width: 36px;
+		height: 36px;
+	}
+
+	.circle-img-lg {
+		width: 48px;
+		height: 48px;
+	}
+}
+
+/* Footer icons wrapper and interaction styles */
+.footer-icons {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	/* transparent container — icons themselves will be pink */
+	padding: 0.5rem 0;
+	align-items: center;
+}
+
+.footer-icons a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: #F48CA5;
+	/* pink background on each icon */
+	text-decoration: none;
+	transition: background-color 240ms ease, transform 240ms ease;
+}
+
+.footer-icons .footer-icon {
+	width: 35px;
+	height: 35px;
+	transition: transform 240ms ease;
+}
+
+.footer-icons .label {
+	display: none;
+}
+
+/* hide titles */
+
+.footer-icons a:hover,
+.footer-icons a:focus {
+	background: #83d3c9;
+	/* blue-ish on hover (matches link color) */
+	transform: translateY(-4px) scale(1.03);
+}
+
+.footer-icons a:hover .footer-icon,
+.footer-icons a:focus .footer-icon {
+	transform: scale(1.08) rotate(-6deg);
+}
+
+/* small screens: reduce spacing and sizes */
+@media screen and (max-width: 480px) {
+	.footer-icons {
+		gap: 0.6rem;
+		padding: 0.6rem 0;
+	}
+
+	.footer-icons a {
+		width: 48px;
+		height: 48px;
+	}
+
+	.footer-icons .footer-icon {
+		width: 36px;
+		height: 36px;
+	}
+}
+
 .row>.imp {
 	order: -1;
 }
@@ -2081,10 +2213,27 @@ input[type="email"] {
 .icon.circle.fa-sun {
 	background: #f48ca5;
 	color: #fff;
+	background-image: url("images/gofundme.svg");
+	background-size: 60%;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .icon.circle.fa-sun:hover {
 	background: #7fb7d2;
+}
+
+.icon.circle.fa-venmo {
+	background: #5b9acb;
+	color: #fff;
+	background-image: url("images/venmo.ico");
+	background-size: 60%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.icon.circle.fa-venmo:hover {
+	background: #6ca3d1;
 }
 
 .icon.circle.fa-facebook-f {
@@ -2213,6 +2362,12 @@ ul.buttons {
 	cursor: default;
 	list-style: none;
 	padding-left: 0;
+}
+
+ul.buttons.disabled {
+	opacity: 0.5;
+	cursor: default;
+	pointer-events: none;
 }
 
 ul.buttons:last-child {
