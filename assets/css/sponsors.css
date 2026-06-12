@@ -1,0 +1,459 @@
+/* ============================================
+   Sponsors Section - Styling
+   ============================================ */
+
+.sponsors-section {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f3f6fa 0%, #eef2f7 100%);
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sponsors-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(63, 177, 163, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sponsors-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(244, 140, 165, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Sponsors Header */
+.sponsors-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sponsors-header h2 {
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.sponsors-header h2 strong {
+    color: rgba(255, 0, 60, 0.85);
+    font-weight: 700;
+}
+
+.sponsors-header p {
+    font-size: 1.1em;
+    color: #7c8081;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Sponsor Cards Container */
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+/* Individual Sponsor Card */
+.sponsor-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 24px rgba(244, 140, 165, 0.12);
+    transition: all 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+}
+
+.sponsor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #F48CA5 0%, rgba(244, 140, 165, 0.7) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 400ms ease;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(244, 140, 165, 0.2);
+    border-color: rgba(244, 140, 165, 0.2);
+}
+
+.sponsor-card:hover::before {
+    transform: scaleX(1);
+}
+
+.sponsor-card.featured {
+    grid-column: auto;
+    border-color: rgba(244, 140, 165, 0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+}
+
+.sponsor-card.featured::before {
+    transform: scaleX(1);
+    background: linear-gradient(90deg, #3fb1a3 0%, #83d3c9 100%);
+}
+
+/* Sponsor Logo */
+.sponsor-logo {
+    width: 100%;
+    height: 120px;
+    background: #f3f6fa;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sponsor-logo img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.sponsor-logo-placeholder {
+    font-size: 3em;
+    color: #ccc;
+}
+
+/* Sponsor Name */
+.sponsor-name {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+/* Sponsor Type/Badge */
+.sponsor-type {
+    display: inline-block;
+    background: rgba(244, 140, 165, 0.15);
+    color: rgba(255, 0, 60, 0.85);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+/* Sponsor Description */
+.sponsor-description {
+    font-size: 1em;
+    color: #7c8081;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+/* Sponsor Footer/Actions */
+.sponsor-footer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+.sponsor-button {
+    display: inline-block;
+    background: #F48CA5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 300ms ease;
+    border: 2px solid #F48CA5;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.sponsor-button:hover {
+    background: #f36d8d;
+    border-color: #f36d8d;
+    text-decoration: none;
+}
+
+.sponsor-button.secondary {
+    background: transparent;
+    color: #F48CA5;
+    border-color: #F48CA5;
+}
+
+.sponsor-button.secondary:hover {
+    background: #F48CA5;
+    color: white;
+}
+
+/* How Sponsors Help Section */
+.sponsor-help-section {
+    padding: 50px 20px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sponsor-help-header {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sponsor-help-header h2 {
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.sponsor-help-header h2 strong {
+    color: rgba(255, 0, 60, 0.85);
+    font-weight: 700;
+}
+
+.sponsor-help-header p {
+    font-size: 1.1em;
+    color: #7c8081;
+}
+
+/* Help Cards Grid */
+.sponsor-help-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.help-card {
+    text-align: center;
+    padding: 30px;
+    background: #f9fbfc;
+    border-radius: 12px;
+    transition: all 300ms ease;
+}
+
+.help-card:hover {
+    background: #f3f6fa;
+    transform: translateY(-5px);
+}
+
+.help-card-icon {
+    font-size: 3em;
+    color: #F48CA5;
+    margin-bottom: 20px;
+}
+
+.help-card h3 {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.help-card p {
+    font-size: 1em;
+    color: #7c8081;
+    line-height: 1.6;
+}
+
+/* Sponsors Page Header */
+.sponsors-page-header {
+    background: linear-gradient(135deg, #f3f6fa 0%, #eef2f7 100%);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.sponsors-page-header h2 {
+    font-size: 2.8em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.sponsors-page-header h2 strong {
+    color: rgba(255, 0, 60, 0.85);
+    font-weight: 700;
+}
+
+.sponsors-page-header p {
+    font-size: 1.1em;
+    color: #7c8081;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Featured Sponsor Banner (on homepage) */
+.featured-sponsor-banner {
+    background: linear-gradient(135deg, rgba(63, 177, 163, 0.1) 0%, rgba(244, 140, 165, 0.1) 100%);
+    border: 2px solid rgba(244, 140, 165, 0.3);
+    border-radius: 15px;
+    padding: 40px;
+    margin: 40px 0;
+    text-align: center;
+    position: relative;
+}
+
+.featured-sponsor-badge {
+    display: inline-block;
+    background: rgba(244, 140, 165, 0.2);
+    color: rgba(255, 0, 60, 0.85);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.featured-sponsor-banner h3 {
+    font-size: 2em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.featured-sponsor-banner p {
+    font-size: 1.05em;
+    color: #7c8081;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+}
+
+.sponsor-learn-more-btn {
+    display: inline-block;
+    background: #F48CA5;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    transition: all 300ms ease;
+    border: 2px solid #F48CA5;
+}
+
+.sponsor-learn-more-btn:hover {
+    background: #f36d8d;
+    border-color: #f36d8d;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .sponsors-header h2,
+    .sponsor-help-header h2,
+    .sponsors-page-header h2 {
+        font-size: 2em;
+    }
+
+    .sponsors-header p,
+    .sponsor-help-header p {
+        font-size: 1em;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sponsor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sponsor-help-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sponsor-card {
+        padding: 30px 20px;
+    }
+
+    .featured-sponsor-banner {
+        padding: 30px 20px;
+    }
+
+    .featured-sponsor-banner h3 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .sponsors-header h2,
+    .sponsor-help-header h2,
+    .sponsors-page-header h2 {
+        font-size: 1.6em;
+    }
+
+    .sponsor-name {
+        font-size: 1.4em;
+    }
+
+    .sponsor-button {
+        font-size: 0.85em;
+        padding: 8px 16px;
+    }
+
+    .help-card-icon {
+        font-size: 2.5em;
+    }
+
+    .sponsor-footer {
+        flex-direction: column;
+    }
+
+    .sponsor-button {
+        min-width: auto;
+    }
+}
