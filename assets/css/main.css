@@ -2994,16 +2994,22 @@ body.index #main {
 	background-image:
 		url("images/light-tl.svg"),
 		url("images/light-tr.svg"),
-		url("images/overlay.png"),
-		linear-gradient(rgba(244, 140, 165, 0.95), rgba(244, 140, 165, 0.95)),
+		linear-gradient(rgba(255, 104, 139, 0.87), rgba(255, 0, 60, 0.6)),
 		/* slightly deeper pink */
 		url("../../images/banner.jpg");
-	background-position: top left, top right, top left, bottom center, bottom center;
+	background-position: top left, top right, bottom center, bottom center;
 	background-repeat: no-repeat, no-repeat, repeat, no-repeat, no-repeat;
 	background-size: 25em, 25em, auto, cover, cover;
 	color: #fff;
 	padding: 5em;
 	text-align: center;
+}
+
+/* CTA (index) - match Wrapper Style2 background */
+#cta.wrapper.style2 {
+	background-attachment: scroll;
+	background-color: #f48ca5;
+	background-image: none;
 }
 
 
