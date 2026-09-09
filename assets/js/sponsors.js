@@ -8,9 +8,28 @@ const sponsors = [
     {
         id: "sunlu",
         name: "SUNLU",
-        type: "Material & Equipment Sponsor",
-        description: "SUNLU provides Toys For Joy with filament and filament drying equipment that supports our 3D printing operations. Their contributions help us produce high-quality toys for donation events, hospitals, shelters, and community outreach programs.",
-        logo: "https://www.sunlu.com/cdn/shop/files/SUNLU-removebg-preview_300x300.png?v=1701677391", // Placeholder - can be replaced with local image
+        type: "Filament & Equipment Sponsor",
+        description: "SUNLU contributed 20 one-kilogram spools of PLA, one FilaDryer SP2, and one FilaDryer S2 to Toys For Joy. This supply of material and drying equipment helps us produce reliable, high-quality toys and adaptive devices for the children and organizations we serve.",
+        contributions: [
+            "25 × 1 kg spools of PLA",
+            "1 × FilaDryer SP2",
+            "1 × FilaDryer S2"
+        ],
+        logo: "images/sponsor/sunlu.jpg",
+        images: [
+            {
+                src: "images/sponsor/sunlu.jpg",
+                alt: "SUNLU logo"
+            },
+            {
+                src: "images/sponsor/sunlu_donation_showoff.jpg",
+                alt: "SUNLU filament and FilaDryer equipment contributed to Toys For Joy"
+            },
+            {
+                src: "images/sponsor/sunlu_print_showcase.jpg",
+                alt: "Adaptive switch buttons printed with filament sponsored by SUNLU"
+            }
+        ],
         website: "https://www.sunlu.com",
         featured: true,
         order: 1
@@ -25,20 +44,52 @@ const sponsors = [
  * @returns {string} HTML string for the sponsor card
  */
 function renderSponsorCard(sponsor, compact = false) {
-    const logoHtml = sponsor.logo
-        ? `<img src="${sponsor.logo}" alt="${sponsor.name} logo" />`
-        : `<span class="sponsor-logo-placeholder">🏢</span>`;
+    const carouselId = `sponsor-carousel-${sponsor.id}`;
+    const logoHtml = sponsor.images && sponsor.images.length
+        ? `<div id="${carouselId}" class="carousel slide sponsor-card-carousel" data-ride="carousel"
+                data-interval="6000" aria-label="${sponsor.name} sponsorship photo gallery">
+                <ol class="carousel-indicators">
+                    ${sponsor.images.map((image, index) => `
+                        <li data-target="#${carouselId}" data-slide-to="${index}"
+                            class="${index === 0 ? 'active' : ''}" aria-label="View image ${index + 1}"></li>
+                    `).join('')}
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    ${sponsor.images.map((image, index) => `
+                        <div class="item ${index === 0 ? 'active' : ''}">
+                            <img src="${image.src}" alt="${image.alt}" />
+                        </div>
+                    `).join('')}
+                </div>
+                <a class="left carousel-control" href="#${carouselId}" role="button" data-slide="prev"
+                    aria-label="Previous ${sponsor.name} photo">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                </a>
+                <a class="right carousel-control" href="#${carouselId}" role="button" data-slide="next"
+                    aria-label="Next ${sponsor.name} photo">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                </a>
+           </div>`
+        : sponsor.logo
+            ? `<img src="${sponsor.logo}" alt="${sponsor.name} logo" />`
+            : `<span class="sponsor-logo-placeholder">🏢</span>`;
 
     const baseClass = sponsor.featured ? 'sponsor-card featured' : 'sponsor-card';
+    const contributionsHtml = sponsor.contributions && sponsor.contributions.length
+        ? `<ul class="sponsor-contributions" aria-label="${sponsor.name} contributions">
+                ${sponsor.contributions.map(item => `<li>${item}</li>`).join('')}
+           </ul>`
+        : '';
 
     return `
         <div class="${baseClass}">
-            <div class="sponsor-logo">
+            <div class="sponsor-logo${sponsor.images && sponsor.images.length ? ' sponsor-carousel-wrap' : ''}">
                 ${logoHtml}
             </div>
             <h3 class="sponsor-name">${sponsor.name}</h3>
             <span class="sponsor-type">${sponsor.type}</span>
             <p class="sponsor-description">${sponsor.description}</p>
+            ${contributionsHtml}
             <div class="sponsor-footer">
                 <a href="${sponsor.website}" class="sponsor-button" target="_blank" rel="noopener noreferrer">
                     Visit ${sponsor.name}

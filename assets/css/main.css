@@ -494,51 +494,85 @@ blockquote {
 	/* transparent container — icons themselves will be pink */
 	padding: 0.5rem 0;
 	align-items: center;
+	list-style: none;
+}
+
+.footer-icons li {
+	padding-left: 0;
 }
 
 .footer-icons a {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 56px;
-	height: 56px;
+	width: 54px;
+	height: 54px;
 	border-radius: 50%;
 	background: #F48CA5;
+	border: 2px solid #F48CA5;
+	box-shadow: 0 3px 8px rgba(124, 128, 129, 0.18);
 	/* pink background on each icon */
 	text-decoration: none;
-	transition: background-color 240ms ease, transform 240ms ease;
-	color: white;
-	font-size: 1.4em;
+	transition: background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease, transform 240ms ease;
+	color: #fff;
+	font-size: 1.25em;
 }
 
 .footer-icons i,
-.footer-icons .footer-icon {
-	width: 35px;
-	height: 35px;
+.footer-icons .footer-icon,
+.footer-icons .footer-venmo-mark {
+	width: 1em;
+	height: 1em;
 	transition: transform 240ms ease;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	line-height: 1;
+}
+
+.footer-icons .footer-venmo-mark {
+	font-family: Arial, sans-serif;
+	font-size: 0.95em;
+	font-style: italic;
+	font-weight: 900;
 }
 
 .footer-icons .label {
-	display: none;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }
 
 /* hide titles */
 
 .footer-icons a:hover,
 .footer-icons a:focus {
-	background: #83d3c9;
-	/* blue-ish on hover (matches link color) */
+	background: #E8729C;
+	border-color: #E8729C;
+	box-shadow: 0 6px 12px rgba(232, 114, 156, 0.3);
+	color: #fff;
+	outline: none;
+	/* darker site pink keeps every footer icon in the same palette */
 	transform: translateY(-4px) scale(1.03);
+}
+
+.footer-icons a:focus-visible {
+	box-shadow: 0 0 0 3px #fff, 0 0 0 5px #E8729C;
 }
 
 .footer-icons a:hover i,
 .footer-icons a:focus i,
 .footer-icons a:hover .footer-icon,
-.footer-icons a:focus .footer-icon {
-	transform: scale(1.08) rotate(-6deg);
+.footer-icons a:focus .footer-icon,
+.footer-icons a:hover .footer-venmo-mark,
+.footer-icons a:focus .footer-venmo-mark {
+	transform: scale(1.08);
 }
 
 /* small screens: reduce spacing and sizes */
@@ -549,14 +583,15 @@ blockquote {
 	}
 
 	.footer-icons a {
-		width: 48px;
-		height: 48px;
+		width: 46px;
+		height: 46px;
 	}
 
 	.footer-icons i,
-	.footer-icons .footer-icon {
-		width: 36px;
-		height: 36px;
+	.footer-icons .footer-icon,
+	.footer-icons .footer-venmo-mark {
+		width: 1em;
+		height: 1em;
 	}
 }
 
