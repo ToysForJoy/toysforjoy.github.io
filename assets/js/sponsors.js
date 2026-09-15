@@ -9,7 +9,7 @@ const sponsors = [
         id: "sunlu",
         name: "SUNLU",
         type: "Filament & Equipment Sponsor",
-        description: "SUNLU contributed 20 one-kilogram spools of PLA, one FilaDryer SP2, and one FilaDryer S2 to Toys For Joy. This supply of material and drying equipment helps us produce reliable, high-quality toys and adaptive devices for the children and organizations we serve.",
+        description: "SUNLU contributed 25 one-kilogram spools of PLA, one FilaDryer SP2, and one FilaDryer S2 to Toys For Joy. This supply of material and drying equipment helps us produce reliable, high-quality toys and adaptive devices for the children and organizations we serve.",
         contributions: [
             "25 × 1 kg spools of PLA",
             "1 × FilaDryer SP2",
